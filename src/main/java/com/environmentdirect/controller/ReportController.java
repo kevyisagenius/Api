@@ -23,7 +23,6 @@ import java.nio.file.Files;
 
 @RestController
 @RequestMapping("/api/reports")
-@CrossOrigin(origins = "http://localhost:5173") // Allow frontend to call backend
 public class ReportController {
 
     private final ReportService reportService;
