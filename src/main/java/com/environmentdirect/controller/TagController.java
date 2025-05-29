@@ -5,7 +5,6 @@ import com.environmentdirect.model.Tag;
 import com.environmentdirect.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,11 +18,6 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("/api/tags")
-@CrossOrigin(origins = {
-    "http://localhost:5173",
-    "https://wonderful-boba-48e576.netlify.app",
-    "https://2d8e-216-181-196-82.ngrok-free.app"
-})
 public class TagController {
 
     private final TagService tagService;

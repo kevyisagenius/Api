@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.environmentdirect.dto.LiveDataDto;
+
 /**
  * Controller for providing live environmental data.
  * This endpoint serves data for the LiveDataDashboardSection component in the frontend.
@@ -21,30 +23,18 @@ public class LiveDataController {
      * @return A map containing metrics data for air quality, water quality, and temperature.
      */
     @GetMapping
-    public ResponseEntity<Map<String, Map<String, String>>> getLiveData() {
+    public ResponseEntity<Map<String, LiveDataDto>> getLiveData() {
         // In a real application, this data would come from sensors, external APIs, or a database
-        Map<String, Map<String, String>> metricsData = new HashMap<>();
+        Map<String, LiveDataDto> metricsData = new HashMap<>();
         
         // Air Quality Index data
-        Map<String, String> aqiData = new HashMap<>();
-        aqiData.put("value", "42");
-        aqiData.put("unit", "Good");
-        aqiData.put("details", "Roseau Capital Average");
-        metricsData.put("aqi", aqiData);
+        metricsData.put("aqi", new LiveDataDto("42", "Good", "Roseau Capital Average"));
         
         // Water Quality data
-        Map<String, String> waterQualityData = new HashMap<>();
-        waterQualityData.put("value", "87");
-        waterQualityData.put("unit", "Excellent");
-        waterQualityData.put("details", "Layou River Monitoring Point");
-        metricsData.put("waterQuality", waterQualityData);
+        metricsData.put("waterQuality", new LiveDataDto("87", "Excellent", "Layou River Monitoring Point"));
         
         // Temperature data
-        Map<String, String> temperatureData = new HashMap<>();
-        temperatureData.put("value", "27.5");
-        temperatureData.put("unit", "°C");
-        temperatureData.put("details", "Canefield Airport Vicinity");
-        metricsData.put("temperature", temperatureData);
+        metricsData.put("temperature", new LiveDataDto("27.5", "°C", "Canefield Airport Vicinity"));
         
         return ResponseEntity.ok(metricsData);
     }

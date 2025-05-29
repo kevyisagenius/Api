@@ -25,8 +25,8 @@ import java.util.Map;
 public class DashboardController {
 
     /**
-     * Get environmental dashboard data for Dominica.
-     * @return A map containing summary cards data and chart data.
+     * Get Dominica dashboard data.
+     * @return A map containing dashboard data for Dominica.
      */
     @GetMapping("/dominica")
     public ResponseEntity<Map<String, Object>> getDominicaDashboardData() {
