@@ -18,11 +18,10 @@ FROM eclipse-temurin:21-jre-jammy
 WORKDIR /app
 
 # Copy the executable JAR file from the builder stage
-# Make sure 'backend-0.0.1-SNAPSHOT.jar' matches the name derived from your pom.xml
 COPY --from=builder /usr/src/app/target/backend-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose the port that Spring Boot runs on (default is 8080)
 EXPOSE 8080
 
 # Command to run the Spring Boot application
-ENTRYPOINT ["java", "-jar", "app.jar"] 
+ENTRYPOINT ["java", "-jar", "app.jar"]
