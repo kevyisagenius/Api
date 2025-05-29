@@ -15,7 +15,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/api/banner")
-@CrossOrigin(origins = "http://localhost:5173") // Allow frontend to call backend
+@CrossOrigin(origins = "*")
 public class BannerController {
 
     /**
